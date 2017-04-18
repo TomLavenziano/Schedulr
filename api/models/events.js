@@ -9,12 +9,6 @@ module.exports = {
 
   attributes: {
 
-    eventID : {
-        type: 'integer',
-        autoIncrement: true,
-        unique: true
-    },
-
     eventTitle : {
         type: 'string'
     },

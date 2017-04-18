@@ -9,11 +9,6 @@ module.exports = {
 
   attributes: {
 
-    userID: {
-        type: 'int',
-        autoIncrement: true
-    },
-
     firstName: {
         type: 'string'
     },
