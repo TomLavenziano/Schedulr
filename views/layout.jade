@@ -35,10 +35,34 @@ html
     link(rel="stylesheet", href="/styles/importer.css")
     link(rel="stylesheet", href="/styles/materialize.css")
     // STYLES END
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
 
     block styles
 
   body
+    //Navigation header
+    html
+  head
+  body
+    nav
+      .nav-wrapper.light-blue.darken-2
+        a.brand-logo(href='#!')
+          i.material-icons cloud
+          | Schedulr
+        ul.right.hide-on-med-and-down
+          li
+            a(href='sass.html')
+              i.material-icons search
+          li
+            a(href='badges.html')
+              i.material-icons view_module
+          li
+            a(href='collapsible.html')
+              i.material-icons refresh
+          li
+            a(href='mobile.html')
+              i.material-icons more_vert
+
     block body
 
     //-
