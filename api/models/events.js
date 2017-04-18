@@ -35,6 +35,10 @@ module.exports = {
 
     busy : {
         type: 'boolean'
+    },
+
+    user_id : {
+        type: 'objectid'
     }
   }
 };

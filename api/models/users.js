@@ -21,10 +21,6 @@ module.exports = {
         type: 'string'
     },
 
-    events: {
-        type: '[]'
-    },
-
     phoneNumber: {
         type: 'string'
     }
