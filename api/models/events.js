@@ -9,36 +9,33 @@ module.exports = {
 
   attributes: {
 
-    eventTitle : {
+    user_id : {
+        type: 'objectid'
+    },
+
+    title : {
         type: 'string'
     },
 
-    ownerID : {
-        type: 'integer'
+    description : {
+        type: 'string'
     },
 
-    startDateTime : {
-        type: 'datetime'
+    start : {
+        type: 'date'
     },
 
-    endDateTime : {
-        type: 'datetime'
-    },
-
-    desc : {
-        type: 'object'
+    end : {
+        type: 'date'
     },
 
     notes : {
-        type: 'object'
+        type: 'array'
     },
 
     busy : {
-        type: 'boolean'
-    },
-
-    user_id : {
-        type: 'objectid'
+        type: 'bool'
     }
+
   }
 };

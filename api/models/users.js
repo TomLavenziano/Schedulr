@@ -21,7 +21,7 @@ module.exports = {
         type: 'string'
     },
 
-    phoneNumber: {
+    phone: {
         type: 'string'
     }
   }
