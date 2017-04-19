@@ -23,6 +23,20 @@ module.exports = {
 
     phone: {
         type: 'string'
+    },
+
+    createdAt: {
+      type: 'string'
+    },
+
+    updatedAt: {
+      type: 'string'
+    },
+
+    events: {
+      collection: 'events',
+      via: 'owner'
     }
+
   }
 };
