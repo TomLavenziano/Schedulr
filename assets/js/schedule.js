@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#calendar').fullCalendar({
-    defaultView:'timelineMonth',
+    defaultView:'month',
     events:[
     //events
     ],
