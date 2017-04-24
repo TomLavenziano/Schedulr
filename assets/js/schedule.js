@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $('#calendar').fullCalendar({
     defaultView:'month',
+<<<<<<< HEAD
     header: {
       left:'month,agendaWeek,agendaDay',
       center:'title',
@@ -16,6 +17,8 @@ $(document).ready(function() {
       //TODO display all info for event
 
     },
+=======
+>>>>>>> bf6c6d253fb9faa7e7f8b0b4661c4f5cc3412487
     events:[
 
     ],
