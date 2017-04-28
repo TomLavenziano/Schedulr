@@ -2,8 +2,16 @@ extends ./layout
 
 
 block body
-  .settings-container
-    h1#test-header
-      | Login & Signup
-    button.btn.waves-effect.waves-light.light-blue.darken-1 
-      | Test Button
+  .loginWrapper.container
+    #loginContainer.loginInnerWrapper
+      h1.welcomeMsg Schedulr
+      form(method="POST" action="/login").form
+        input(id='emailInput' type='email', placeholder='Email')
+        input(id='passInput' type='password', placeholder='Password')
+        button#login-button(type='submit').btn.waves-effect.waves-light Login
+            
+  //- Background cube bubble things
+  ul.bg-bubbles
+    - for (var cube = 0; cube < 9; cube++)
+      li
+    
