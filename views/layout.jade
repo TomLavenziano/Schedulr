@@ -36,7 +36,9 @@ html
     link(rel="stylesheet", href="/styles/importer.css")
     link(rel="stylesheet", href="/styles/jquery.timepicker.css")
     link(rel="stylesheet", href="/styles/layout.css")
+    link(rel="stylesheet", href="/styles/login.css")
     link(rel="stylesheet", href="/styles/materialize.css")
+    link(rel="stylesheet", href="/styles/profile.css")
     // STYLES END
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
 
@@ -50,22 +52,26 @@ html
       nav
         .nav-wrapper.light-blue.darken-2.nav-padding
           a.brand-logo(href='/')
-            i.material-icons cloud
+            i.material-icons date_range
             | Schedulr
           ul.right.hide-on-med-and-down
             li
+              a(href='/')
+                i.material-icons home
+            li
               a(href='/schedule')
-                i.material-icons more_vert
+                i.material-icons event
             li
               a(href='/profile')
-                i.material-icons search
+                i.material-icons account_circle
             li
               a(href='/login')
-                i.material-icons view_module
+                i.material-icons vpn_key
             li
               a(href='/settings')
-                i.material-icons refresh
-    block body
+                i.material-icons settings
+    .wrapper
+      block body
 
     //-
       Client-side Templates
@@ -127,6 +133,7 @@ html
     script(src="/js/dependencies/materialize.min.js")
     script(src="/js/dependencies/moment.js")
     script(src="/js/fullcalendar.js")
+    script(src="/js/login.js")
     script(src="/js/modalForm.js")
     script(src="/js/schedule.js")
     // SCRIPTS END
