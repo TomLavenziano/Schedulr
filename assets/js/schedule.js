@@ -1,8 +1,8 @@
 $(document).ready(function() {
   //should open modal on ready
-  //$('#modalForm').modal('open');
+  $('#modalForm').modal('open');
   //should initialize the button I added since I couldn't get it to work programmatically
-  $('#modalButton').modal();
+  $('modalButton').modal();
   $('#calendar').fullCalendar({
     defaultView:'month',
     header: {
