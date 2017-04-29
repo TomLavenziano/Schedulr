@@ -19,12 +19,10 @@ $(document).ready(function(){
     if($('#allDaySwitch').is(':checked')){
       $('#startTimeScroll').prop('disabled', true);
       $('#endTimeScroll').prop('disabled', true);
-      $('#startDateSelect').prop('disabled', true);
       $('#endDateSelect').prop('disabled', true);
     } else {
       $('#startTimeScroll').prop('disabled', false);
       $('#endTimeScroll').prop('disabled', false);
-      $('#startDateSelect').prop('disabled', false);
       $('#endDateSelect').prop('disabled', false);
     }
   });
