@@ -19,6 +19,7 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "jade": "^1.11.0",
+    "materialize-clockpicker": "^1.0.1",
     "rc": "1.0.1",
     "sails": "~0.12.9",
     "sails-disk": "~0.10.9",

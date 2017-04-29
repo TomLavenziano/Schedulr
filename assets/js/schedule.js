@@ -1,64 +1,67 @@
+/*--- Globals ---*/
+var eventUrl = '/events/';
+var calendar = $('#calendar');
+
 $(document).ready(function() {
-  //should open modal on ready
+  initCalendar();
+  initNewEventModal();
+  initDateAndTime();
+});
+
+
+function initDateAndTime() {
+  $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year
+      autoclose: true
+      // ,format: 'yyyy/mm/dd'
+    });
+
+  $('.timepicker').pickatime({
+    default: 'now',
+    autoclose: true,
+    twelvehour: true,
+    ampmclickable: true,
+    vibrate: true
+  });
+}
+
+function initNewEventModal() {
   $('.modal').modal();
-  //should initialize the button I added since I couldn't get it to work programmatically
-  $('modalButton').modal();
-  $('#calendar').fullCalendar({
+
+  $('#allDayEvent').off('click').on('click', function(){
+      var checked = $(this).is(':checked');
+      $('#startTime, #endTime, #endDate').prop('disabled', checked);
+  });
+
+}
+
+function openNewEventModal(date) {
+  $('#newEventModal').modal('open');
+
+}
+
+function initCalendar() {
+  calendar.fullCalendar({
+    events: eventUrl,
     defaultView:'month',
     header: {
-      left:'month,agendaWeek,agendaDay',
-      center:'title',
-      right:'today prev,next'
+      left:  'month,agendaWeek,agendaDay',
+      center: 'title',
+      right: 'today prev,next'
     },
+
     dayClick: function(date, jsEvent, view, allDay) {
-      if(view.name == 'month'){
+      if(view.name == 'month') {
         $('#calendar').fullCalendar('changeView', 'agendaDay', date);
-        return;
+      } else {
+        openNewEventModal();
       }
-      //should open the modal when a day is clicked in day or week view
-      $('#modalForm').modal('open');
-      // var newEvent = {
-      //   title: abc,
-      //   start: date.format()
-      // }
-      // $('#calendar').fullCalendar('renderEvent', newEvent);
     },
-     eventClick: function(calEvent, jsEvent, view){
-       alert('Event: ' + calEvent.title);
-    //   //TODO display all info for event
-    //
-     },
-    events:[
 
-    ],
-    resources:[
-    //resources
-    ]
-  });
-  $('#timeAndDate .time').timepicker({
-    'showDuration': true,
-    'timeFormat': 'g:ia'
-  });
-
-  $('#timeAndDate .date').pickadate({
-    selectMonths: true,
-    selectYears: 100,
-    format: 'mm/dd/yyyy'
-  });
-
-  $('#startTimeScroll').timepicker({ 'scrollDefault' : 'now'});
-  $('#endTimeScroll').timepicker();
-
-  $('#allDaySwitch').prop('checked', false);
-  $('#allDaySwitch').on("click", function(){
-    if($('#allDaySwitch').is(':checked')){
-      $('#startTimeScroll').prop('disabled', true);
-      $('#endTimeScroll').prop('disabled', true);
-      $('#endDateSelect').prop('disabled', true);
-    } else {
-      $('#startTimeScroll').prop('disabled', false);
-      $('#endTimeScroll').prop('disabled', false);
-      $('#endDateSelect').prop('disabled', false);
+    eventClick: function(calcEvent, jsEvent, view) {
+       alert('Event: ' + calcEvent.title);
     }
   });
-});
+
+}
