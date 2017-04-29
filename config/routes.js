@@ -46,6 +46,9 @@ module.exports.routes = {
   },
   '/settings': {
     view: 'settings'
+  },
+  '/modal': {
+    view: 'modalForm'
   }
 
   /***************************************************************************
