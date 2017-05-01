@@ -28,10 +28,9 @@ function initDateAndTime() {
 
 function initNewEventModal() {
   $('.modal').modal();
-
   $('#allDayEvent').off('click').on('click', function(){
       var checked = $(this).is(':checked');
-      $('#startTime, #endTime, #endDate').prop('disabled', checked);
+      $('#startTime, #endTime').prop('disabled', checked);
   });
 
 }
