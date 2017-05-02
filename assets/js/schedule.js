@@ -54,11 +54,9 @@ $(document).ready(function() {
     if($('#allDaySwitch').is(':checked')){
       $('#startTimeScroll').prop('disabled', true);
       $('#endTimeScroll').prop('disabled', true);
-      $('#endDateSelect').prop('disabled', true);
     } else {
       $('#startTimeScroll').prop('disabled', false);
       $('#endTimeScroll').prop('disabled', false);
-      $('#endDateSelect').prop('disabled', false);
     }
   });
 });
