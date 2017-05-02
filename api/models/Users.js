@@ -37,6 +37,12 @@ module.exports = {
       collection: 'events',
       via: 'owner'
     }
-
+    // settings: {
+    //   type: 'array'
+    //   setting :{
+    //     24-hour : "boolean"
+    //   }
+    //   });
+    // }
   }
 };
