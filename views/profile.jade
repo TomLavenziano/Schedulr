@@ -2,10 +2,18 @@ extends ./layout
 
 
 block body
-  .settings-container
-    #picdiv
-      img(src="/images/testprofilepic.jpg")#profilepic
-    h3#fullname
-      | John Q. Doe
-    button.btn.waves-effect.waves-light.light-blue.darken-1 
-      | Test Button
+  .profile-container
+    .container
+      .row
+        .col.s4.offset-s4 
+          img(src="/images/testprofilepic.jpg")#profilepic
+      .row
+        .col.s4.offset-s4
+          h3#fullname John Q. Doe
+      .row
+        .col.s6
+          .card-panel
+            p Events:
+        .col.s6
+          .card-panel
+            p Event Details:
