@@ -35,21 +35,38 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/profile': {
-    view: 'profile'
-  },
-  '/login': {
+
+  '/': 'AuthController.home',
+
+  'get /login': {
     view: 'login'
   },
+
+  'post /login': 'AuthController.login',
+
+  'get /logout': 'AuthController.logout',
+
+  'get /signup': {
+    view: 'login'
+  },
+
+  // '/profile': {
+  //   view: 'profile'
+  // },
+
+  'get /profile': 'UsersController.profile',
+
+  'get /profile/:name': 'UsersController.profile',
+
   '/schedule': {
     view: 'schedule'
   },
+
   '/settings': {
     view: 'settings'
   },
-  '/modal': {
-    view: 'modalForm'
-  }
+
+  '/admin/users' : {model: 'users', blueprint: 'find'}
 
   /***************************************************************************
   *                                                                          *

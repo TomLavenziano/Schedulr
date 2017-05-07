@@ -45,32 +45,36 @@ html
 
     block styles
   body
-    //Navigation header
-    html
-  head
-  body
     .navbar-fixed
       nav
         .nav-wrapper.light-blue.darken-2.nav-padding
           a.brand-logo(href='/')
             i.material-icons date_range
             | Schedulr
+            -if (req.session.user) 
+              | #{req.session.user.email}
+            
           ul.right.hide-on-med-and-down
             li
               a(href='/')
                 i.material-icons home
-            li
-              a(href='/schedule')
-                i.material-icons event
-            li
-              a(href='/profile')
-                i.material-icons account_circle
-            li
-              a(href='/login')
-                i.material-icons vpn_key
-            li
-              a(href='/settings')
-                i.material-icons settings
+            if req.session.user
+              li
+                a(href='/schedule')
+                  i.material-icons event
+              li
+                a(href='/profile')
+                  i.material-icons account_circle
+              li
+                a(href='/settings')
+                  i.material-icons settings
+              li
+                a(href='/logout')
+                  i.material-icons close
+            else
+              li
+                a(href='/login')
+                  i.material-icons vpn_key
     .wrapper
       block body
 
