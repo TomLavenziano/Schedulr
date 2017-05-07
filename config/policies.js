@@ -26,7 +26,23 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': 'isAuthenticated',
+
+  AuthController: {
+    '*': true
+  },
+
+  EventsController: {
+    '*': 'isAuthenticated'
+  },
+
+  UsersController: {
+    create: true,
+    update: 'isAuthenticated',
+    find: true,
+    delete: 'isAuthenticated',
+    profile: 'isAuthenticated'
+  }
 
   /***************************************************************************
   *                                                                          *

@@ -1,7 +1,7 @@
 {
   "name": "Schedulr",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "A task and schedule management system",
   "keywords": [],
   "dependencies": {
@@ -37,6 +37,6 @@
     "type": "git",
     "url": "git://github.com/tom/Schedulr.git"
   },
-  "author": "tom",
-  "license": ""
+  "author": "Tom Lavenziano",
+  "license": "MIT"
 }

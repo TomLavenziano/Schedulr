@@ -1,38 +1,60 @@
 /*-- Globals --*/
 //TODO: Convert Form submission from POST to AJAX in JS
-$("#login-button").click(function(event){
-  var emailDOM = $("#emailInput");
-  var passDOM = $("#passInput");
+$("._form-button").click(function(event){
   event.preventDefault();
-  submitLogin(emailDOM, passDOM, function(success) {
+  // var emailDOM = $("#emailInput");
+  // var passDOM = $("#passInput");
+  parentForm = $(this).parent('form');
+  var serialData = parentForm.serialize();
+  var formUrl = parentForm.attr('action');
+  submitLogin(formUrl, serialData, function(success) {
     if(success) {
       $('form').fadeOut(500);
       $('h1.welcomeMsg').text('Welcome');
       $('.loginInnerWrapper').addClass('form-success');
-      // redirectToHome();
+      setTimeout(function () {
+        window.navigate('/profile');
+      }, 2000);
     } else {
       alert("Login Failure: Invalid Credentials");
     }
   });
 });
 
-function submitLogin(emailDOM, passDOM, callback) {
-  var success = true; //For visual testing
-  var loginURL = 'user/';
-  console.log($('form').serialize());
-  // $.post(loginURL, function(data) {
-  //   console.log(data);
-  //   alert(data);
-  // }).fail(function(err) {
-  //   console.log(data);
-  //   alert(data);
-  // });
+$("body").on('click', '.formSwap', function() {
+  swapForms();
+});
 
-  callback(success);
+function submitLogin(formUrl, serialData, callback) {
+  var success; //For visual testing
+  // var loginURL = '/login';
+  // console.log($('form').serialize());
+  console.log(formUrl);
+  $.post(formUrl, serialData, function(data) {
+    console.log(data);
+    success = data.user;
+    if(!success) {
+      alert(data.message);
+    } else {
+      callback(success);
+    }
+  }).fail(function(err) {
+    console.log(data);
+    success = false;
+    callback(success);
+  });
+
+  // callback(success);
+}
+
+function swapForms() {
+  $('form').fadeToggle('slow', function() {
+    $(this).parent().toggleClass('hidden');
+    $(this).fadeToggle('slow');
+  });
 }
 
 
-
-function redirectToHome() {
-
+function navigate(loc) {
+  window.navigate(loc);
 }
