@@ -1,5 +1,5 @@
 /*--- Globals ---*/
-var eventUrl = '/events/';
+var eventUrl = '/events/owner/';
 var calendar = $('#calendar');
 
 $(document).ready(function() {
@@ -59,7 +59,14 @@ function initCalendar() {
     },
 
     eventClick: function(calcEvent, jsEvent, view) {
-       alert('Event: ' + calcEvent.title);
+      //  alert(calcEvent.description);
+      $('#eventDetails .modal-content ul').html("");
+      $.each(calcEvent, function(key, val) {
+        // if(key == 'Title' || key == 'Description' || key == 'Start' || key == 'End') {
+          $('#eventDetails .modal-content ul').append("<li><span class='eventDetailsParam'>" + key + ":</span> " + val + " </li>");
+        // }
+      });
+      $('#eventDetails').modal('open');
     }
   });
 
