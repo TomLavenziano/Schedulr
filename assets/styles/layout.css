@@ -1,4 +1,40 @@
+html {
+  height: 100%;
+  min-height: 100%
+  width: 100%;
+  min-width: 100%;
+}
+
+body {
+  /*background-color: #E9E9E9;*/
+  height: 100%;
+  min-height: 100%
+  width: 100%;
+  min-width: 100%;
+}
+
+.wrapper {
+  background: #54f3f3;
+  background: -webkit-linear-gradient(top left, #4b9abf 0%, #54f3f3 100%);
+  background: linear-gradient(to bottom right, #4b9abf 0%, #54f3f3 100%);
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 64px); /*minus nav bar height*/
+  overflow: auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .nav-padding {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+nav {
+  /*Guarantee static height for proper overflow control*/
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
 }

@@ -1,9 +1,38 @@
 extends ./layout
-
-
 block body
-  .settings-container
-    h1#test-header
-      | Schedule
-    button.btn.waves-effect.waves-light.light-blue.darken-1 
-      | Test Button
+  .container
+    .card-panel
+      #calendar
+  #newEventModal.modal
+    .modal-content
+      h4 New Event
+      form#newEventForm
+        .row
+          .input-field.col.active.s12
+            //- input(placeholder="Event Name", type="text", id="title").validate
+            label(for="title") Title
+            input(id="title" class="validate" type="text")
+        .row
+          #timeAndDate
+            .col.s6
+              label(for="startDate") Start Date
+              input(id="startDate" class="datepicker" type="date")
+            .col.s6
+              label(for="startTime") Start Time
+              input(id="startTime" class="timepicker" type="time")
+            .col.s6
+              label(for="endDate") End Date
+              input(id="endDate" class="datepicker " type="date")
+            .col.s6
+              label(for="endTime") End Time
+              input(id="endTime" class="timepicker" type="time")
+            .switch
+              label all day
+                input(id="allDayEvent" type="checkbox")
+                span.lever
+        .row
+          .input-field.col.active.s12
+          textarea#description.materialize-textarea
+          .label Description
+        .row
+          a.waves-effect.waves-light.btn.modal-close.modal-action#submitBtn Submit

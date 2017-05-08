@@ -35,18 +35,38 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/profile': {
-    view: 'profile'
-  },
-  '/login': {
+
+  '/': 'AuthController.home',
+
+  'get /login': {
     view: 'login'
   },
+
+  'post /login': 'AuthController.login',
+
+  'get /logout': 'AuthController.logout',
+
+  'get /signup': {
+    view: 'login'
+  },
+
+  'get /profile': 'UsersController.profile',
+
+  'get /profile/:name': 'UsersController.profile',
+
+  'get /events/details/:eventID': 'EventsController.details',
+
   '/schedule': {
     view: 'schedule'
   },
+
   '/settings': {
     view: 'settings'
-  }
+  },
+
+  '/admin/users' : {model: 'users', blueprint: 'find'},
+
+  '/admin/events' : {model: 'events', blueprint: 'find'}
 
   /***************************************************************************
   *                                                                          *

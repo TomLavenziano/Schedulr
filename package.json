@@ -1,10 +1,11 @@
 {
   "name": "Schedulr",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "A task and schedule management system",
   "keywords": [],
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -19,6 +20,9 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "jade": "^1.11.0",
+    "materialize-clockpicker": "^1.0.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "rc": "1.0.1",
     "sails": "~0.12.9",
     "sails-disk": "~0.10.9",
@@ -33,6 +37,6 @@
     "type": "git",
     "url": "git://github.com/tom/Schedulr.git"
   },
-  "author": "tom",
-  "license": ""
+  "author": "Tom Lavenziano",
+  "license": "MIT"
 }

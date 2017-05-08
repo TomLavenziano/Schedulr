@@ -1,9 +1,28 @@
 extends ./layout
-
-
+//- var user = req.session.user
 block body
-  .settings-container
-    h1#test-header
-      | Profile
-    button.btn.waves-effect.waves-light.light-blue.darken-1 
-      | Test Button
+  .profile-container
+      .coverContainer
+        .profileInfoContainer
+          .row
+            .col.s6.offset-s3
+              img(src="/images/default.jpg").profilePic
+          .row
+            .col.s12
+              .nameContainer #{profileUser.firstName} #{profileUser.lastName}
+      .mainBodyContainer.container
+        .row
+          .col.s6
+            ul.eventsContainer
+              if profileUser.events.length > 0
+                each event in profileUser.events
+                  li(data-event-id= event.id).card-panel.eventCard
+                    i.material-icons work
+                    |  #{event.title}
+              else 
+                li.card-panel.noEvents No Events Found 
+                  if profileUser.id == req.session.user.id
+                    a(href='/schedule') , Create one?
+          .col.s6
+            ul.eventDetailsContainer.card-panel
+              li Select an event

@@ -2,8 +2,31 @@ extends ./layout
 
 
 block body
-  .settings-container
-    h1#test-header
-      | Login & Signup
-    button.btn.waves-effect.waves-light.light-blue.darken-1 
-      | Test Button
+  .loginWrapper.container
+    //- Login
+    #loginContainer.loginInnerWrapper
+      h1.welcomeMsg Schedulr
+      form(method="POST" action="/login")#loginForm.form
+        input(name='email' type='email', placeholder='Email' autofocus='autofocus')
+        input(name='password' type='password', placeholder='Password')
+        button#login-button(type='submit').btn.waves-effect.waves-light.form-button Login
+        div.smallSignUpLink 
+          a(class='formSwap' href='#') Sign Up
+    
+    //- Sign Up
+    #signUpContainer.loginInnerWrapper.hidden
+      h1.welcomeMsg Schedulr
+      form(method="POST" action="/users")#signUpForm.form
+        input(name='email' type='email', placeholder='Email' autofocus='autofocus')
+        input(name='password' type='password', placeholder='Password')
+        input(name='firstName' type='text', placeholder='First Name')
+        input(name='lastName' type='text', placeholder='Last Name')
+        button#signUp-button(type='submit').btn.waves-effect.waves-light.form-button Sign Up
+        div.smallSignUpLink 
+          a(class='formSwap' href='#') Login
+            
+  //- Background cube bubble things
+  ul.bg-bubbles
+    - for (var cube = 0; cube < 9; cube++)
+      li
+    

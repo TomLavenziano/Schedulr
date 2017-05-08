@@ -32,39 +32,51 @@ html
           + Use a different or additional preprocessor, like SASS, SCSS or Stylus
 
     // STYLES
+    link(rel="stylesheet", href="/styles/fullcalendar.css")
     link(rel="stylesheet", href="/styles/importer.css")
     link(rel="stylesheet", href="/styles/layout.css")
+    link(rel="stylesheet", href="/styles/login.css")
+    link(rel="stylesheet", href="/styles/materialize.clockpicker.css")
     link(rel="stylesheet", href="/styles/materialize.css")
+    link(rel="stylesheet", href="/styles/profile.css")
+    link(rel="stylesheet", href="/styles/schedule.css")
     // STYLES END
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
 
     block styles
-
-  body
-    //Navigation header
-    html
-  head
   body
     .navbar-fixed
       nav
         .nav-wrapper.light-blue.darken-2.nav-padding
           a.brand-logo(href='/')
-            i.material-icons cloud
-            | Schedulr
+            i.material-icons date_range
+            | Schedulr 
+            -if (req.session.user) 
+              | #{req.session.user.email}
+            
           ul.right.hide-on-med-and-down
             li
-              a(href='/schedule')
-                i.material-icons more_vert
-            li
-              a(href='/profile')
-                i.material-icons search
-            li
-              a(href='/login')
-                i.material-icons view_module
-            li
-              a(href='/settings')
-                i.material-icons refresh
-    block body
+              a(href='/')
+                i.material-icons home
+            if req.session.user
+              li
+                a(href='/schedule')
+                  i.material-icons event
+              li
+                a(href='/profile')
+                  i.material-icons account_circle
+              li
+                a(href='/settings')
+                  i.material-icons settings
+              li
+                a(href='/logout')
+                  i.material-icons close
+            else
+              li
+                a(href='/login')
+                  i.material-icons vpn_key
+    .wrapper
+      block body
 
     //-
       Client-side Templates
@@ -113,5 +125,12 @@ html
     // SCRIPTS
     script(src="/js/dependencies/sails.io.js")
     script(src="/js/dependencies/jquery.min.js")
+    script(src="/js/dependencies/moment.js")
+    script(src="/js/dependencies/fullcalendar.js")
+    script(src="/js/dependencies/Gruntfile.js")
+    script(src="/js/dependencies/materialize.clockpicker.js")
     script(src="/js/dependencies/materialize.min.js")
+    script(src="/js/login.js")
+    script(src="/js/profile.js")
+    script(src="/js/schedule.js")
     // SCRIPTS END
