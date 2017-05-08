@@ -18,7 +18,7 @@ passport.use(new LocalStrategy({
   },
   function(email, password, done) {
 
-    Users.findOne({ email: email }, function (err, user) {
+    Users.findOne({ email: email }).populate('events').exec(function (err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect email.' });
@@ -30,10 +30,22 @@ passport.use(new LocalStrategy({
               message: 'Invalid Password'
             });
           var returnUser = {
+            id: user.id,
             email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            events: user.events,
             createdAt: user.createdAt,
-            id: user.id
+            lastLogin: user.lastLogin
           };
+          Users.update({ id : user.id }, { lastLogin : new Date() }).exec(function afterwards(err, updated){
+            if (err)
+              return done(null, false, {
+                message: 'Error Recording Login Action'
+              });
+            console.log('Updated user\'s lastLogin: ' + updated[0].lastLogin);
+          });
+
           return done(null, returnUser, { user : returnUser });
         });
 

@@ -37,7 +37,7 @@ module.exports = {
 									// req.session.authenticated = true;
 									req.session.user = user;
                   console.log(user);
-									return res.view('profile');
+									return res.redirect('/profile');
 								}
             });
 

@@ -50,7 +50,7 @@ html
         .nav-wrapper.light-blue.darken-2.nav-padding
           a.brand-logo(href='/')
             i.material-icons date_range
-            | Schedulr
+            | Schedulr 
             -if (req.session.user) 
               | #{req.session.user.email}
             
@@ -131,5 +131,6 @@ html
     script(src="/js/dependencies/materialize.clockpicker.js")
     script(src="/js/dependencies/materialize.min.js")
     script(src="/js/login.js")
+    script(src="/js/profile.js")
     script(src="/js/schedule.js")
     // SCRIPTS END
