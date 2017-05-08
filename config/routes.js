@@ -50,13 +50,11 @@ module.exports.routes = {
     view: 'login'
   },
 
-  // '/profile': {
-  //   view: 'profile'
-  // },
-
   'get /profile': 'UsersController.profile',
 
   'get /profile/:name': 'UsersController.profile',
+
+  'get /events/details/:eventID': 'EventsController.details',
 
   '/schedule': {
     view: 'schedule'
@@ -66,7 +64,9 @@ module.exports.routes = {
     view: 'settings'
   },
 
-  '/admin/users' : {model: 'users', blueprint: 'find'}
+  '/admin/users' : {model: 'users', blueprint: 'find'},
+
+  '/admin/events' : {model: 'events', blueprint: 'find'}
 
   /***************************************************************************
   *                                                                          *

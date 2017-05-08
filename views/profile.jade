@@ -1,19 +1,28 @@
 extends ./layout
-
-
+//- var user = req.session.user
 block body
   .profile-container
-    .container
-      .row
-        .col.s4.offset-s4 
-          img(src="/images/testprofilepic.png")#profilepic
-      .row
-        .col.s4.offset-s4
-          h3#fullname John Q. Doe
-      .row
-        .col.s6
-          .card-panel
-            p Events:
-        .col.s6
-          .card-panel
-            p Event Details:
+      .coverContainer
+        .profileInfoContainer
+          .row
+            .col.s6.offset-s3
+              img(src="/images/default.jpg").profilePic
+          .row
+            .col.s12
+              .nameContainer #{profileUser.firstName} #{profileUser.lastName}
+      .mainBodyContainer.container
+        .row
+          .col.s6
+            ul.eventsContainer
+              if profileUser.events.length > 0
+                each event in profileUser.events
+                  li(data-event-id= event.id).card-panel.eventCard
+                    i.material-icons work
+                    |  #{event.title}
+              else 
+                li.card-panel.noEvents No Events Found 
+                  if profileUser.id == req.session.user.id
+                    a(href='/schedule') , Create one?
+          .col.s6
+            ul.eventDetailsContainer.card-panel
+              li Select an event
