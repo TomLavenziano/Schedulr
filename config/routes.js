@@ -56,6 +56,10 @@ module.exports.routes = {
 
   'get /events/details/:eventID': 'EventsController.details',
 
+  'get /events/owner/': 'EventsController.getEventsByUser',
+
+  'get /events/owner/:ownerID': 'EventsController.getEventsByUser',
+
   '/schedule': {
     view: 'schedule'
   },

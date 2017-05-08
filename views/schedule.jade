@@ -6,33 +6,41 @@ block body
   #newEventModal.modal
     .modal-content
       h4 New Event
-      form#newEventForm
+      form(method="POST" action="/events")#newEventForm
+        input(name="owner" type="hidden" value= req.session.user.id)
         .row
           .input-field.col.active.s12
-            //- input(placeholder="Event Name", type="text", id="title").validate
             label(for="title") Title
-            input(id="title" class="validate" type="text")
+            input(name="title" id="title" class="validate" type="text")
         .row
           #timeAndDate
             .col.s6
               label(for="startDate") Start Date
-              input(id="startDate" class="datepicker" type="date")
+              input(name="startDate" id="startDate" class="datepicker" type="date")
             .col.s6
               label(for="startTime") Start Time
-              input(id="startTime" class="timepicker" type="time")
+              input(name="startTime" id="startTime" class="timepicker" type="time")
             .col.s6
               label(for="endDate") End Date
-              input(id="endDate" class="datepicker " type="date")
+              input(name="endDate" id="endDate" class="datepicker " type="date")
             .col.s6
               label(for="endTime") End Time
-              input(id="endTime" class="timepicker" type="time")
+              input(name="endTime" id="endTime" class="timepicker" type="time")
             .switch
               label all day
-                input(id="allDayEvent" type="checkbox")
+                input(name="allDay" id="allDayEvent" type="checkbox")
                 span.lever
         .row
           .input-field.col.active.s12
-          textarea#description.materialize-textarea
+          textarea(name="description")#description.materialize-textarea
           .label Description
         .row
-          a.waves-effect.waves-light.btn.modal-close.modal-action#submitBtn Submit
+          //- a.waves-effect.waves-light.btn.modal-close.modal-action#submitBtn Submit
+          button(type='submit').waves-effect.waves-light.btn.modal-close.modal-action#submitBtn Submit
+  
+  #eventDetails.modal
+    .eventDetailsContainer.modal-content
+      ul
+    
+  
+  
