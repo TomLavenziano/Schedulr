@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 function bindClickEvents() {
-  $('body').off('click').on('click', '.eventsContainer li', function() {
+  $('.profile-container').off('click').on('click', '.eventsContainer li', function() {
     var eventID = $(this).attr('data-event-id');
     populateEventDetails(eventID);
   });

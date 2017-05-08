@@ -59,13 +59,13 @@ h1.welcomeMsg {
   /*font-weight: 200;*/
 }
 
-form {
+.loginWrapper form {
   padding: 20px 0;
   position: relative;
   z-index: 2;
 }
 
-form.form input {
+.loginWrapper form.form input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -83,19 +83,16 @@ form.form input {
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
 }
-
-form input:hover {
+.loginWrapper form input:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-
-form input:focus {
+.loginWrapper form input:focus {
   background-color: white;
   width: 350px;
   height: 4rem;
   color: #0095ff;
 }
-
-form.form button {
+.loginWrapper form.form button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -113,21 +110,17 @@ form.form button {
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
 }
-
-form.form button:hover {
+.loginWrapper form.form button:hover {
   background-color: #0095ff;
   color: white;
 }
-
-form.form .smallSignUpLink {
+.loginWrapper form.form .smallSignUpLink {
   margin-top: 10px;
 }
-
-form.form .smallSignUpLink a {
+.loginWrapper form.form .smallSignUpLink a {
   font-size: 1.2rem;
 }
-
-form.form .smallSignUpLink a:hover {
+.loginWrapper form.form .smallSignUpLink a:hover {
   font-size: 1.5rem;
   color: #FFF;
 }

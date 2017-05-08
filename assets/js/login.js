@@ -21,7 +21,7 @@ $("._form-button").click(function(event){
   });
 });
 
-$("body").on('click', '.formSwap', function() {
+$("body").on('click', '.loginWrapper a', function() {
   swapForms();
 });
 

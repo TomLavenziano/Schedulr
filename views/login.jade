@@ -4,7 +4,7 @@ extends ./layout
 block body
   .loginWrapper.container
     //- Login
-    #loginContainer.loginInnerWrapper
+    #loginContainer.loginInnerWrapper.hidden
       h1.welcomeMsg Schedulr
       form(method="POST" action="/login")#loginForm.form
         input(name='email' type='email', placeholder='Email' autofocus='autofocus')
@@ -14,7 +14,7 @@ block body
           a(class='formSwap' href='#') Sign Up
     
     //- Sign Up
-    #signUpContainer.loginInnerWrapper.hidden
+    #signUpContainer.loginInnerWrapper
       h1.welcomeMsg Schedulr
       form(method="POST" action="/users")#signUpForm.form
         input(name='email' type='email', placeholder='Email' autofocus='autofocus')
